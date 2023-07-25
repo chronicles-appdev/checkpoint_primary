@@ -1,0 +1,29 @@
+.centralize {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+ion-icon {
+    font-size: xx-large;
+    color: red;
+}
+
+h2 {
+    color: red;
+}
+
+p {
+    font-family: 'Helvetica Neue';
+    line-height: 25.2px;
+    letter-spacing: 1px;
+    width: 350px;
+}
+
+ion-button {
+    width: 15rem;
+    height: 3rem;
+
+}

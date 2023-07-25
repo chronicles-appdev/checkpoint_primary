@@ -1,0 +1,70 @@
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size-xs="12" size-sm="12" size-md="8" offsetMd="2">
+        <div class="logo">
+          <div class="centered-div">
+            <img src="../../assets/head.png"  height="80px" alt="">
+
+          </div>
+        </div>
+
+
+        <h2 style="color:#2D3480" class="logo">Activation Point</h2>
+       
+        <div class="regSectionM">
+          <ion-segment [(ngModel)]="selectedSegment">
+            <ion-segment-button value="activate">
+              <ion-label>Activate</ion-label>
+            </ion-segment-button>
+
+
+          </ion-segment>
+
+          <div class="tab" *ngIf="selectedSegment === 'activate'">
+
+        <form  [formGroup]="registrationForm1"  (ngSubmit)="onSubmit()">
+
+              <!-- <ion-input type="text" name="activationCode" placeholder="Activation Code" [(ngModel)]="activationCode" required></ion-input> -->
+
+
+              <ion-input label="Activation Code" label-placement="floating" fill="outline" placeholder="Enter Code"
+                (input)="onInputChange($event)" formControlName="activationCode" type="text" name="activationCode"
+                required></ion-input>
+
+       
+
+              <div class="ion-padding">
+            <ion-button type="submit" (click)="onSubmit()" [disabled]="registrationForm1.invalid" expand="block">Activate</ion-button>
+              </div>
+            </form>
+
+
+
+            <!-- <a href="/activate">Yet to pay back to Payment</a> -->
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+      
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+</ion-content>

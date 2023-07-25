@@ -1,0 +1,53 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar>
+
+    <img src="../../assets/head.png" height="60px" alt="Image" class="top-left-image">
+    <!-- <h3 slot="start">Mathematics</h3> -->
+    <ion-label slot="end">
+
+
+   
+        <ion-icon   (click)="goHome()" name="home"></ion-icon>
+      
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+<ion-grid class="contain">
+  <!-- Table header -->
+  <ion-row class="header-row" class="header ion-text-center">
+    <ion-col>S/N</ion-col>
+    <ion-col>Date</ion-col>
+    <ion-col>Subject</ion-col>
+    <ion-col>Percentage</ion-col>
+    <ion-col>Score</ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <!-- Table body -->
+  <ion-row class="rowsetting ion-text-center" *ngFor="let asd of history let i =index">
+    <ion-col>{{ i+1 }}</ion-col>
+    <ion-col class="col-back">{{ asd.date_created | date: 'MMM d, y'}}</ion-col>
+    <ion-col class="col-back">{{ asd.subject_name }}</ion-col>
+    <ion-col class="col-back " style="color: green">{{ getPer(asd.correctly_answ, asd.num_question )}}%</ion-col>
+    <ion-col class="col-back">{{ asd.correctly_answ }} out of {{ asd.num_question }}</ion-col>
+    <ion-col>
+      <ion-button [routerLink]="['/review', asd.id]" fill="solid">View Review</ion-button>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-row  class="rowsetting ion-text-center">
+      <ion-col>2</ion-col>
+      <ion-col class="col-back">23/12/2023</ion-col>
+      <ion-col class="col-back">Biology</ion-col>
+      <ion-col class="col-back" style="color: red">10%</ion-col>
+      <ion-col class="col-back">4 out of 10</ion-col>
+      <ion-col>
+        <ion-button fill="solid">View Review</ion-button>
+      </ion-col>
+    </ion-row> -->
+
+
+</ion-grid>
+</ion-content>

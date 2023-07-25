@@ -1,0 +1,64 @@
+ .testarea {
+  //  border-bottom: 1px solid black;
+       margin: 0.2rem;
+
+     .quest {
+         padding-left: 1rem;
+         width: 100%;
+         font-family: 'Space Grotesk';
+        
+         align-items: center;
+         letter-spacing: -0.03em;
+         margin-bottom: 2rem;
+         flex: none;
+         order: 0;
+         flex-grow: 0;
+         h4 {
+            font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 19px;  
+         }
+     }
+
+     .options {
+       //  margin-bottom: 2rem;
+
+         ion-list {
+
+             ion-radio-group {
+
+                 ion-item {
+                     border: 1px solid gray;
+                     border-radius: 1rem;
+                     margin: 0.2rem 1rem 0.2rem 1rem;
+                     padding: 2px;
+
+
+                 }
+             }
+         }
+     }
+
+
+ }
+
+ ion-modal {
+     --height: 50%;
+     --border-radius: 16px;
+     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+ }
+
+ ion-modal::part(backdrop) {
+     background: rgba(209, 213, 219);
+     opacity: 1;
+ }
+
+ ion-modal ion-toolbar {
+   //  --background: rgb(14 116 144);
+     --color: white;
+
+     ion-icon {
+        color: var(--ion-color-primary);
+     }
+ }

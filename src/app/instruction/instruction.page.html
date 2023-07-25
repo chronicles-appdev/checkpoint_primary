@@ -1,0 +1,45 @@
+
+<ion-header mode="ios" >
+  <ion-toolbar>
+      <!-- <ion-chip (click)="goTest()">
+        <ion-icon name="chevron-back-outline" color="primary"></ion-icon>
+      </ion-chip> -->
+  <img src="../../assets/head.png" height="60px" alt="Image" class="top-left-image">
+  <!-- <ion-label style="margin-left: 2rem; margin-top: -2rem;"><img src="../../../assets/centlib.png" height="20px">{{ TestDetailList.test_name }}</ion-label> -->
+
+   
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  
+  <div class="content">
+    <div class="instruction">
+      <h5>INSTRUCTION</h5>
+      <p>Please read the following instructions carefully, before you proceed to take the test</p>
+      
+    </div>
+    <div class="must">
+      <h5>You must </h5>
+      <ul>
+        <li>A quiet room for&nbsp; <span style="color: red;"> {{ TestDetailList.duration }}<strong>&nbsp;&nbsp;</strong></span> minutes</li>
+        <li>Finish test in one sitting</li>
+      </ul>
+      
+    </div>
+    <div class="how">
+      <h5>How it works</h5>
+      <ul>
+        <li>You will be given <span style="color: red;"> &nbsp;<strong>{{ TestDetailList.duration }}  &nbsp; </strong></span> minutes to answer &nbsp;<span style="color: red;"> <strong> {{ TestDetailList.num_question }}&nbsp;&nbsp;</strong></span> questions</li>
+        <li>Going away from the test screen will automatically submit your test for you.</li>
+      </ul>
+      
+    </div>
+
+    <div class="confirmation">
+      <!-- <ion-checkbox labelPlacement="end">I understand all the instructions </ion-checkbox> -->
+      <ion-button (click)="startTest()">Start Test</ion-button>
+    </div>
+
+  </div>
+ </ion-content>
+ 

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar>
+
+  <img src="../../assets/head.png" height="60px" alt="Image" class="top-left-image">
+    <!-- <h3 slot="start">Mathematics</h3> -->
+    <ion-label slot="end">
+     
+
+      <ion-chip class="text-danger">
+        <ion-icon name="alarm"></ion-icon>
+        &nbsp; {{ times }}
+
+
+      </ion-chip>
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+
+ 
+    <app-question></app-question>
+
+
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="center">
+  <ion-fab-button class="custom-fab"  (click)="confirmAlert()">
+    <ion-icon name="checkmark-done-outline"></ion-icon>
+    <ion-text>Submit Test</ion-text>
+  </ion-fab-button>
+
+</ion-fab>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="scrollToTop()">
+  <ion-icon name="chevron-up-outline"></ion-icon>
+   
+  </ion-fab-button>
+
+</ion-fab>
+
+  <!-- <div class="nextprev">
+    
+    <ion-button fill="outline" color="warning"   size="large"><ion-icon name="help-circle-outline"></ion-icon>Report a Problem</ion-button>
+    <ion-button fill="solid" color="primary" style="float: right; margin: 3px"  size="large" (click)="confirmAlert()">Final Submission</ion-button>
+  
+  </div> -->
+</ion-content>

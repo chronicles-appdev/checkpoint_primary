@@ -1,0 +1,47 @@
+
+<ion-content>
+    <img src="../../assets/head.png" height="60px" alt="Image" class="top-left-image">
+  <ion-grid class="parent">
+    <ion-row>
+
+      <ion-col size-xs="12" size-sm="12" size-md="10" offsetMd="1">
+
+
+        <h2 style="color: var(--ion-color-primary)" class="logo">Subject </h2>
+        <p class="logo text">Choose the subject combination you will like to practice on.</p>
+        <p style="margin-left: 1rem">Please select a minimum of five (5) subjects</p>
+        <div class="regSectionM text">
+
+          <ion-grid class="ion-grid">
+            <ion-row>
+              <ion-col size-xs="6" *ngFor="let subj of subjects">
+                <ion-checkbox labelPlacement="end"  (ionChange)="onclick(subj.id)">{{ subj.subject_name }}</ion-checkbox>
+              </ion-col>
+             
+            </ion-row>
+          </ion-grid>
+
+
+
+          <div class="ion-padding ">
+            <ion-button type="submit"  (click)="confirmAlert()"  expand="block">Finish</ion-button>
+          </div>
+
+
+
+
+
+        </div>
+
+
+
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+</ion-content>

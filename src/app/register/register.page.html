@@ -1,0 +1,72 @@
+<ion-header mode="ios">
+  <img src="../../assets/head.png" height="80px" alt="Image" class="top-left-image">
+</ion-header>
+<ion-content [fullscreen]="true">
+
+  <div class="centralize">
+   
+    <ion-grid class="regSection">
+      <ion-row>
+        <div class="signup">
+          <h2 style="color: var(--ion-color-primary)">Sign Up</h2>
+          <p>Please enter your correct details below</p>
+        </div>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+
+
+          <form [formGroup]="registrationForm1" (ngSubmit)="onSubmit()">
+
+
+
+            <ion-input label="Student Full Name" label-placement="floating" fill="outline"
+              placeholder="Enter you names here" formControlName="fullName" type="text" name="fullName"
+              required></ion-input>
+
+
+            <ion-input label="Your Email Address" label-placement="floating" fill="outline"
+              placeholder="Enter Email here" formControlName="email" type="email" name="email" required></ion-input>
+
+
+            <ion-input label="Your Phone Number" label-placement="floating" fill="outline" placeholder="Enter Phone Number here"
+              formControlName="phoneNumber" type="phoneNumber" name="phoneNumber" required></ion-input>
+
+
+            <ion-select formControlName="class">
+              <ion-select-option value="">Select Class</ion-select-option>
+              <ion-select-option value="Basic 1">Basic 1 </ion-select-option>
+
+              <ion-select-option value="Basic 2">Basic 2 </ion-select-option>
+              <ion-select-option value="Basic 3">Basic 3 </ion-select-option>
+              <ion-select-option value="Basic 4">Basic 4 </ion-select-option>
+              <ion-select-option value="Basic 5">Basic 5 </ion-select-option>
+              <ion-select-option value="Basic 6">Basic 6 </ion-select-option>
+            </ion-select>
+
+
+            
+
+
+           <div style="word-wrap: break-word;">
+            <ion-checkbox labelPlacement="end"></ion-checkbox>
+            I agree to the terms and conditions provided
+           </div>
+
+
+            <ion-button type="submit"  [disabled]="registrationForm1.invalid" expand="block">Register</ion-button>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+
+
+
+
+
+</ion-content>

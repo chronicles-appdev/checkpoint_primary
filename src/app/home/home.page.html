@@ -1,20 +1,165 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="top-button">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <img src="../../assets/head.png" height="60px" alt="Image" class="top-left-image">
+  <!-- <ion-icon name="apps-outline" class="icons" (click)="openSideMenu()"></ion-icon> -->
+  <ion-icon name="reorder-four-outline"  class="icons" (click)="openSideMenu()"></ion-icon>
+    <!-- <ion-button fill="outline" color="danger" (click)="openSideMenu()">Menu</ion-button> -->
+
   </div>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col>
+        <div class="dashB">
+          <div class="second-box float-left">
+            <ion-avatar>
+              <img alt="IGCSE  Image" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </ion-avatar>
+        
+            <h6>{{ fullname }}</h6>
+          </div>
+        
+          <div class="float-right" style="margin-right: -3rem;">
+            <ion-button size="" href="test" sizeMd="large" fill="outline">Start Quiz</ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" sizeLg="4" sizeMd="4" sizeXl="4" sizeSm="4" sizeXs="6">
+      <div class="testTaken">
+        <ion-row>
+          <ion-col size="8" style="margin-left: 4px;">
+            <h6>Test Taken</h6>
+          </ion-col>
+    
+          <ion-col size="3" class="ion-text-right">
+            <ion-icon class="icon" name="book"></ion-icon>
+          </ion-col>
+    
+        </ion-row>
+    
+        <ion-row style="margin-top: 1rem;">
+          <ion-col size="9">
+            <ion-text>{{ count }}</ion-text>
+          </ion-col>
+    
+          <ion-col size="3"  class="ion-text-right">
+            <ion-icon name="arrow-forward"   style="margin-right: 1.5rem;" ></ion-icon>
+          </ion-col>
+    
+    
+    
+        </ion-row>
+    
+      </div>
+    </ion-col>
+    <!-- <ion-col size="4" sizeLg="4" sizeMd="4" sizeXl="4" sizeSm="4"     sizeXs="6">
+      <div class="testPassed">
+        <ion-row>
+          <ion-col size="8" style="margin-left: 4px;">
+            <h6>Test Passed</h6>
+          </ion-col>
+    
+          <ion-col size="3"  class="ion-text-right" >
+            <ion-icon class="icon" name="book"></ion-icon>
+          </ion-col>
+    
+        </ion-row>
+    
+        <ion-row style="margin-top: 1rem;">
+          <ion-col size="9" >
+            <ion-text>{{ result }}</ion-text>
+          </ion-col>
+    
+          <ion-col size="3"  class="ion-text-right">
+            <ion-icon name="arrow-forward"   style="margin-right: 1.5rem;" ></ion-icon>
+          </ion-col>
+    
+    
+    
+        </ion-row>
+    
+      </div>
+    </ion-col>
+    <ion-col size="4" sizeLg="4" sizeMd="4" sizeXl="4" sizeSm="4" sizeXs="6">
+      <div class="testFailed">
+        <ion-row>
+          <ion-col size="8" style="margin-left: 4px;">
+            <h6>Test Failed</h6>
+          </ion-col>
+    
+          <ion-col size="3"  class="ion-text-right">
+            <ion-icon class="icon" name="book"></ion-icon>
+          </ion-col>
+    
+        </ion-row>
+    
+        <ion-row style="margin-top: 1rem;">
+          <ion-col size="9">
+            <ion-text>{{ count - result }}</ion-text>
+          </ion-col>
+    
+          <ion-col size="3"  class="ion-text-right">
+            <ion-icon  style="margin-right: 1.5rem;" name="arrow-forward"></ion-icon>
+          </ion-col>
+    
+    
+    
+        </ion-row>
+    
+      </div>
+    </ion-col> -->
+
+    
+
+
+    </ion-row>
+
+   
+
+  </ion-grid>
+
+  <ion-grid class="contain">
+    <!-- Table header -->
+    <ion-row  class="header-row" class="header ion-text-center">
+      <ion-col>S/N</ion-col>
+      <ion-col>Date</ion-col>
+      <ion-col>Subject</ion-col>
+      <ion-col>Percentage</ion-col>
+      <ion-col>Score</ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  
+    <!-- Table body -->
+    <ion-row  class="rowsetting ion-text-center" *ngFor="let asd of history let i =index">
+      <ion-col>{{ i+1 }}</ion-col>
+      <ion-col class="col-back">{{ asd.date_created | date: 'MMM d, y' }}</ion-col>
+      <ion-col class="col-back">{{ asd.subject_name }}</ion-col>
+      <ion-col class="col-back " style="color: green">{{ getPer(asd.correctly_answ, asd.num_question )}}%</ion-col>
+      <ion-col class="col-back">{{ asd.correctly_answ }} out of {{ asd.num_question }}</ion-col>
+      <ion-col>
+        <ion-button [routerLink]="['/review', asd.id]" fill="solid"><ion-icon name="reorder-two-outline"></ion-icon> Review</ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row  class="rowsetting ion-text-center">
+      <ion-col>2</ion-col>
+      <ion-col class="col-back">23/12/2023</ion-col>
+      <ion-col class="col-back">Biology</ion-col>
+      <ion-col class="col-back" style="color: red">10%</ion-col>
+      <ion-col class="col-back">4 out of 10</ion-col>
+      <ion-col>
+        <ion-button fill="solid">View Review</ion-button>
+      </ion-col>
+    </ion-row> -->
+  
+   
+  </ion-grid>
+
 </ion-content>

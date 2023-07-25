@@ -1,0 +1,30 @@
+
+
+<ion-content [fullscreen]="true">
+  <img src="../../assets/head.png" height="60px" alt="Image" class="top-left-image">
+<div>
+
+  <img src="../../assets/result.png">
+  <h2>Submission Received !</h2>
+  <p>Your Test Result is here !</p>
+  <h1>{{ getPerc(result.num_question, score) }}%</h1>
+  <p>{{ score }} out {{ result.num_question }}</p>
+
+  <ion-progress-bar [value]="getLoad(result.num_question, result.correctly_answ)" style="height: 8px; width: 15rem; border-radius: 3px;"></ion-progress-bar>
+
+  <ion-button fill="outline" [routerLink]="['/review',id]" color="dark" style="margin: 1rem; height: 3rem; width: 12rem;">See Test Review</ion-button>
+
+  <ion-button  href="/home" style="margin: 1rem; height: 3rem; width: 12rem;">Check Dashboard </ion-button>
+
+  <!-- <ion-button fill="outline" class="report-button"  style="margin: 1rem; height: 3rem; width: 12rem; border-radius: 2px;">Report a problem</ion-button> -->
+</div>
+
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button >
+    <ion-icon name="help-circle-outline"></ion-icon>
+    <ion-text> Report a Problem</ion-text>
+  </ion-fab-button>
+
+</ion-fab>
+</ion-content>

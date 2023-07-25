@@ -1,0 +1,64 @@
+
+<ng-container *ngFor="let ind of marking; let i= index">
+  <div class="testarea">
+  
+    <div class="quest">
+      <h4>Question {{ i + 1 }} </h4>
+      <h5> {{ ind.questionText }} </h5>
+      <div *ngIf="ind.graphics">
+        <ion-button fill="outline" (click)="openModal(ind.images.toUpperCase())">See Diagram</ion-button>
+        <ion-img   (click)="openModal(ind.images.toUpperCase())" src="https://ulearnlms.net/checkpoint/images/{{ ind.graphics }}" ></ion-img>
+      </div>
+     
+    </div>
+    <div class="options">
+      <ion-list>
+        <ion-radio-group value="option{{ind.id}}" (ionChange)="handleRadioChange($event, ind.id)">
+  
+          <ion-item lines="none">
+            <!-- <ion-radio value="A" justify="space-between">
+              <p style="white-space: normal; ">(A)&nbsp; {{ ind.optionA }} </p>
+            </ion-radio> -->
+
+           
+              <ion-textarea placeholder="Your Answer goes here" [autoGrow]="true"
+                value="">
+              </ion-textarea>
+            </ion-item>
+            <!-- <ion-textarea></ion-textarea> -->
+        
+  
+  
+  
+  
+  
+  
+        </ion-radio-group>
+      </ion-list>
+  
+    </div>
+  
+  
+  </div>
+</ng-container>
+<!-- 
+  <ion-modal #modal trigger="myModal">
+    <ng-template>
+      <ion-content>
+        <ion-img [src]="modalImage" [alt]="modalImage"></ion-img>
+      </ion-content>
+    </ng-template>
+  </ion-modal> -->
+
+  <ion-modal #modal trigger="myModal">
+    <ng-template>
+     
+  
+      <ion-content>
+          <ion-button fill="outline" (click)="closeModal()">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        <ion-img [src]="modalImage" [alt]="modalImage"></ion-img>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
