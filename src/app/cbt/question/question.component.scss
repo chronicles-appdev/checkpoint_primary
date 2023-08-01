@@ -21,28 +21,12 @@
          }
      }
 
-     .options {
-       //  margin-bottom: 2rem;
-
-         ion-list {
-
-             ion-radio-group {
-
-                 ion-item {
-                     border: 1px solid gray;
-                     border-radius: 1rem;
-                     margin: 0.2rem 1rem 0.2rem 1rem;
-                     padding: 2px;
-
-
-                 }
-             }
-         }
-     }
-
 
  }
-
+ion-textarea {
+    --padding-end: 10px;
+    --padding-start: 10px;
+}
  ion-modal {
      --height: 50%;
      --border-radius: 16px;

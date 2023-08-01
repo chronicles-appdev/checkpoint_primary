@@ -1,54 +1,55 @@
 
-<ng-container *ngFor="let ind of marking; let i= index">
+<!-- <ng-container *ngFor="let ind of marking; let i= index"> -->
   <div class="testarea">
   
     <div class="quest">
-      <h4>Question {{ i + 1 }} </h4>
-      <h5> {{ ind.questionText }} </h5>
-      <div *ngIf="ind.graphics">
-        <ion-button fill="outline" (click)="openModal(ind.images.toUpperCase())">See Diagram</ion-button>
-        <ion-img   (click)="openModal(ind.images.toUpperCase())" src="https://ulearnlms.net/checkpoint/images/{{ ind.graphics }}" ></ion-img>
+      <h4>Question {{ 1 }} </h4>
+      <h5> {{ marking[currentQuestionIndex]?.questionText }} </h5>
+      <div *ngIf="marking[currentQuestionIndex]?.graphics">
+        <ion-button fill="outline" (click)="openModal(marking[currentQuestionIndex]?.images.toUpperCase())">See Diagram</ion-button>
+
+        <ion-img   (click)="openModal(marking[currentQuestionIndex]?.images.toUpperCase())" src="https://ulearnlms.net/checkpoint/images/{{ marking[currentQuestionIndex]?.graphics }}" ></ion-img>
       </div>
      
     </div>
-    <div class="options">
+    <div>
       <ion-list>
-        <ion-radio-group value="option{{ind.id}}" (ionChange)="handleRadioChange($event, ind.id)">
+      <form [formGroup]="registrationForm1" (ngSubmit)="onSubmit()">
+
   
           <ion-item lines="none">
-            <!-- <ion-radio value="A" justify="space-between">
-              <p style="white-space: normal; ">(A)&nbsp; {{ ind.optionA }} </p>
-            </ion-radio> -->
+    
+            <ion-textarea [(ngModel)]="dataArray[marking[currentQuestionIndex]?.id]"  name="answer"   labelPlacement="floating" fill="outline" placeholder=" Type Your Answer"  formControlName="answer" name="answer" ></ion-textarea>
 
-           
-              <ion-textarea placeholder="Your Answer goes here" [autoGrow]="true"
-                value="">
-              </ion-textarea>
+            <!-- <ion-input type="hidden" formControlName="test_id" name="test_id" value="{{ marking[currentQuestionIndex]?.questionText }}"></ion-input> -->
+
+         
+          
+
             </ion-item>
-            <!-- <ion-textarea></ion-textarea> -->
-        
+           
+      </form>
   
   
   
   
   
   
-        </ion-radio-group>
+       
       </ion-list>
   
+    </div>
+
+    <div>
+      <ion-item lines="none">
+        <ion-button fill="outline"  size="default" slot="start"  (click)="prevQuestion()" [disabled]="currentQuestionIndex === 0">Previous</ion-button>
+        <ion-button fill="outline" size="default" slot="end" (click)="nextQuestion()" [disabled]="currentQuestionIndex === marking.length - 1">Next</ion-button>
+      </ion-item>
     </div>
   
   
   </div>
-</ng-container>
-<!-- 
-  <ion-modal #modal trigger="myModal">
-    <ng-template>
-      <ion-content>
-        <ion-img [src]="modalImage" [alt]="modalImage"></ion-img>
-      </ion-content>
-    </ng-template>
-  </ion-modal> -->
+
 
   <ion-modal #modal trigger="myModal">
     <ng-template>
